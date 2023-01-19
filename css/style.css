@@ -80,27 +80,22 @@ body {
 
 .current {
   color: var(--btn-color);
-  
 }
-
 
 .current:after {
   position: absolute;
-  bottom: 0px;
+  bottom: -1px;
   left: 0px;
 
-  display: block;
   content: "";
   background-color: var(--btn-color);
   width: 100%;
   height: 4px;
 
   border-radius: 2px;
-  
-  transition: opacity 2500ms var(--cubik);
+
+  transition: opacity 250ms var(--cubik);
 }
-
-
 
 .link-auth {
   display: block;
@@ -133,9 +128,7 @@ body {
   border-radius: 4px;
   border: none;
 
-  transition: background-color 250ms var(--cubik),
-  box-shadow 250ms var(--cubik);
-
+  transition: background-color 250ms var(--cubik), box-shadow 250ms var(--cubik);
 }
 
 .button:hover,
@@ -181,6 +174,7 @@ body {
 }
 
 /* header */
+
 .head {
   border-bottom: 1px solid var(--secondary-text);
 }
@@ -192,6 +186,8 @@ body {
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
+
+  border-top: 1px solid var(--secondary-text);
 }
 
 .nav-header {
@@ -273,23 +269,24 @@ body {
   height: 100%;
 
   background: var(--backdrop-bg);
-  
-  transform: scale(1);
-  transition: transform 250ms var(--cubik);
+
+  opacity: 1;
+  transition: opacity 250ms var(--cubik);
 }
 
 .backdrop.is-hidden {
-  transform: scale(0);
   opacity: 0;
   pointer-events: none;
+}
 
+.backdrop.is-hidden .modal {
+  transform: scaleY(0) translate(-50%, -50%);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   width: 408px;
   height: 576px;
@@ -298,9 +295,12 @@ body {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transform: scaleY(1) translate(-50%, -50%);
+  transition: transform 250ms var(--cubik);
 }
 
-.modal-btn{
+.modal-btn {
   position: absolute;
   top: 24px;
   right: 24px;
@@ -308,7 +308,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 
   width: 24px;
   height: 24px;
@@ -317,12 +316,20 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: var(--secondary-text);
   cursor: pointer;
-  
-
-  
 }
 
-.icon-btn{
+.modal-btn:hover .icon-btn {
+  fill: var(--accent-color);
+}
+.modal-btn:hover {
+  background-color: var(--brand-color);
+}
+
+.icon-btn:hover {
+  fill: var(--accent-color);
+}
+
+.icon-btn {
   width: 8px;
   height: 8px;
 }
@@ -413,7 +420,7 @@ body {
   border-radius: 50%;
   background-color: var(--brand-color);
 
-  transition: background-color 250ms var(--cubik) ;
+  transition: background-color 250ms var(--cubik);
 }
 
 .social-link-team:hover,
@@ -434,7 +441,7 @@ body {
   border-radius: 4px;
   border: 1px solid var(--border-company);
 
-  transition: border 250ms var(--cubik) ;
+  transition: border 250ms var(--cubik);
 }
 
 .link-customers:hover,
@@ -518,7 +525,7 @@ body {
   background-color: var(--footer-link-bg);
   border-radius: 50%;
 
-  transition: background-color 250ms var(--cubik) ;
+  transition: background-color 250ms var(--cubik);
 }
 
 .icon-footer {
@@ -566,10 +573,8 @@ body {
   background-color: var(--btn-secondary-clr);
   color: var(--brand-color);
 
-  transition:background-color 250ms var(--cubik),
-  border 250ms var(--cubik),
-  color 250ms var(--cubik),
-  box-shadow 250ms var(--cubik) ;
+  transition: background-color 250ms var(--cubik), border 250ms var(--cubik),
+    color 250ms var(--cubik), box-shadow 250ms var(--cubik);
 }
 
 .btn-portfolio:not(:last-child) {
@@ -617,8 +622,8 @@ body {
   border-right: 1px solid var(--secondary-text);
 }
 
-.item-card{
-  transition: box-shadow 250ms var(--cubik) ;
+.item-card {
+  transition: box-shadow 250ms var(--cubik);
 }
 
 .item-card:hover {
@@ -644,8 +649,6 @@ body {
   width: 100%;
   height: 100%;
 
-  
-
   display: inline-block;
   content: "";
 
@@ -653,10 +656,9 @@ body {
   opacity: 0;
 
   transition: transform 250ms var(--cubik);
-
 }
 
-.thumb-portfolio{
+.thumb-portfolio {
   overflow: hidden;
 }
 
@@ -678,7 +680,6 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--btn-secondary-clr);
-
 }
 
 .link:hover .thumb-portfolio::before,
@@ -687,6 +688,4 @@ body {
 .link:focus .text-thumb {
   opacity: 1;
   transform: translateY(0);
-
 }
-
